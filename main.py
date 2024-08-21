@@ -42,6 +42,7 @@ async def review(update, context):
 
 async def search(update, context):
     response = requests.get(search_url+f"?area={demo_range}&x={demo_x}&y={demo_y}")
+    print(update.message.location)
     if list(response.json()) == []:
         await update.message.reply_text("Sorry, no spot found.")
     for d in list(response.json()):
@@ -66,9 +67,6 @@ async def cancel(update, context):
 
 
 def main():
-    """
-    Handles the initial launch of the program (entry point).
-    """
     application = Application.builder().token(token).concurrent_updates(False).read_timeout(30).write_timeout(30).build()
     application.add_handler(CommandHandler("search", search))
     application.add_handler(InlineQueryHandler(callback=addReview)) #pattern="Add Review")
