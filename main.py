@@ -8,8 +8,11 @@ demo_x=11.12
 demo_y=46.07
 demo_range=50
 
-search_url="http://localhost:8086/api/v1/"
-review_url="http://localhost:8084/api/v1"
+#search_url="http://localhost:8086/api/v1/"
+#review_url="http://localhost:8084/api/v1"
+
+search_url="http://searchprocesslayer:8080/api/v1/"
+review_url="http://reviewprocesslayer:8080/api/v1"
 
 starting_range = 10
 
